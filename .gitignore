@@ -2,3 +2,6 @@ node_modules/
 dist/
 releases/
 gulp/cache/
+.sass-cache
+src/css/
+src/js/
