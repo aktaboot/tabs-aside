@@ -3,13 +3,9 @@
   "version": "3.6.0",
   "description": "tab/session manager",
   "scripts": {
-    "build": "gulp --prod",
-    "dev": "gulp watch",
-    "dev-fastbuild": "gulp watch --disable-typecheck",
-    "typecheck": "tsc --watch --noEmit",
-    "firefox": "web-ext build -s dist -a releases -i=\"**/*.pdn\"",
-    "run-firefox": "npm run build && web-ext run -s dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm tsc --outDir src/js && pnpm dart-sass src/scss:src/css",
+    "dev": "pnpm run build && pnpm web-ext -s src/ run --verbose",
+    "firefox": "pnpm run build && pnpm web-ext build -s src -o -a releases -i=\"**/*.pdn\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +19,7 @@
   "homepage": "https://github.com/tim-we/tabs-aside#readme",
   "devDependencies": {
     "@types/firefox-webext-browser": "^120.0.4",
+    "dart-sass": "^1.25.0",
     "del": "^8.0.0",
     "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",
@@ -31,6 +28,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-tap": "^2.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
+    "sass": "^1.83.0",
     "stylelint": "^16.12.0",
     "stylelint-config-sass-guidelines": "^12.1.0",
     "stylelint-no-unsupported-browser-features": "^8.0.2",
