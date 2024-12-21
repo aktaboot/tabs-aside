@@ -1,6 +1,6 @@
 {
   "name": "tabs-aside",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "description": "tab/session manager",
   "scripts": {
     "build": "pnpm tsc --outDir src/js && pnpm dart-sass src/scss:src/css",
